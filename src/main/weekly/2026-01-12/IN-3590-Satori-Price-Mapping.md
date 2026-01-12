@@ -1,7 +1,7 @@
 # IN-3590 - Satori: Prices for assets w/o SelectFeed coverage
 
-**Type:** Bug | **Feature** | Exploration | Other
-**Est:** [X]h | **Confidence:** [X]%
+**Type:** **Bug** | Feature | Exploration | Other
+**Est:** 1h | **Confidence:** 65%
 
 ## Problem & Goal
 Some assets in Satori's environment have stale prices. These cases are related to assets that are options or warrants, like Newhold Investment Corp III.
@@ -37,10 +37,15 @@ Set up the adapter to map the price from column H as the asset's price in cases 
 ## Execution Notes
 *Fill as you work - blockers, discoveries, pivots*
 
+Figured out that we get the price, regardless of the asset, from column AQ on the file.  
+Asked Jorge about the issue. I may be confused myself, but Jorge says that the prices are coming from SelectFeed, and
+that column AQ would be filled in if the SelectFeed price isn't given. Wouldn't that still result in an up-to-date price?  
+More to consider.
+
 ### Themes
 
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** [X]h (Research: .5h | Implementation: [X]h)
 
 ## Retrospective
 **What went differently than planned?**
