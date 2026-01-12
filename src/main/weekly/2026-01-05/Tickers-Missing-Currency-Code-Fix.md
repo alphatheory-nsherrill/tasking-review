@@ -1,7 +1,7 @@
 # Tickers With No Currency Code
 
 **Type:** **Bug** | Feature | Exploration | Other
-**Est:** [X]h | **Confidence:** [X]%
+**Est:** 3h | **Confidence:** 60%
 
 ## Problem & Goal
 All tickers need a Currency Code.
@@ -43,12 +43,25 @@ Seems that an adapter is pulling an existing ticker without a currency code, and
 
 Upon investigation, it turns out that the new TickerFactoryForIdmServicesGuidepost was not including currencyCode in the actual logic of the applyTickerChanges function.
 
+Went through the guidepost's ticker update functionality and ensured all relevant fields were being updated. This turned
+into a review with Dan about how the system handles Figi vs Composite Figi.
+
 ### Themes
 
+This was a good introduction to the new Guidepost ticker update system. I took some extra time to review the component,
+and really learn how the pieces fit together. This system is definitely an upgrade over the ticker factory merge in
+system from before.
+
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** 2.5h (Research: 2h | Implementation: .5h)
 
 ## Retrospective
 **What went differently than planned?**
 
+A larger review on the concept of Figi vs Composite Figi, and when to use each was held. This was not in the immediate
+scope of the issue, but what necessary to ensuring completeness of the component.
+
 **Key learnings or gotchas:**
+
+The new code that was causing an issue was technically correct with the other ticker fields it was updating. This 
+highlights a need for stricter review strategies.

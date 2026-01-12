@@ -1,6 +1,6 @@
 # [TICKET-ID] - Task Title
 
-**Type:** Bug | Feature | Exploration | Other
+**Type:** Bug | Feature | Exploration | Other  
 **Est:** [X]h | **Confidence:** [X]%
 
 ## Problem & Goal
