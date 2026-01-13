@@ -59,6 +59,8 @@ Enhanced adapter that:
 
 Finished on Friday, deployed to staging. Will need to follow up Monday for approval from CX
 
+Deployed on Monday afternoon to production
+
 ### Themes
 
 Explicit clarification in Jira on requirements before beginning work
