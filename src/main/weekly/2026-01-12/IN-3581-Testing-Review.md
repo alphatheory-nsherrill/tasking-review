@@ -53,12 +53,22 @@ The adapter was implemented with complex FIFO matching logic, composite Bloomber
 - All checklist item mappings implemented with proper database value translations
 - Preferred fund ID logic added to fund mapping definition
 
+**Staging Testing Results**:
+- Ran the adapter in staging successfully
+- Confirmed correct mappings and custom fields being applied
+- Unable to confirm FIFO matching functionality when running in staging environment
+- Still need to set aside time to step through the code to verify FIFO matching logic works as expected
+
 ### Themes
 
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** 1h (Research: 1h | Implementation: 0h)
 
 ## Retrospective
 **What went differently than planned?**
 
+Staging testing revealed that while basic adapter functionality works correctly, the FIFO matching system is difficult to validate in non-TimesSquare environments, requiring code review rather than runtime verification.
+
 **Key learnings or gotchas:**
+
+Our FIFO matching system is copy-pasted from other parts of the codebase and locked behind "only run in TimesSquare environment" locks, which could lead to problems down the line. However, now that I have hands-on experience with this code, I know where to look if things go wrong.

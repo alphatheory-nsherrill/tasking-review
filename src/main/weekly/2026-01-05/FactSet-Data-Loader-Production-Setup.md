@@ -44,10 +44,13 @@ New requirements: Explore integration with FactSet's cloud data formats (snowfla
 ## Execution Notes
 *Fill as you work - blockers, discoveries, pivots*
 
+Alex co-opted lead on this issue - my role in this transitioned from being a point of contact to being a source of
+support for Alex in setting up queries and understanding database structure.
+
 ### Themes
 
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** 1.5h (Research: 1.5h | Implementation: [X]h)
 
 ## Retrospective
 **What went differently than planned?**

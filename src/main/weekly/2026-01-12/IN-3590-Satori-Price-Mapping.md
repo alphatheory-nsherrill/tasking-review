@@ -37,17 +37,37 @@ Set up the adapter to map the price from column H as the asset's price in cases 
 ## Execution Notes
 *Fill as you work - blockers, discoveries, pivots*
 
-Figured out that we get the price, regardless of the asset, from column AQ on the file.  
+Figured out that we get the price, regardless of the asset, from column AQ on the file.
 Asked Jorge about the issue. I may be confused myself, but Jorge says that the prices are coming from SelectFeed, and
-that column AQ would be filled in if the SelectFeed price isn't given. Wouldn't that still result in an up-to-date price?  
+that column AQ would be filled in if the SelectFeed price isn't given. Wouldn't that still result in an up-to-date price?
 More to consider.
+
+**Alex's Research and Resolution:**
+
+Alex also did research on this issue and came to the following conclusion:
+
+For background on the Newhold Investment Corp III holding, it looks like Satori instructions have a manual override, labeling all warrants as OTC instruments.
+
+Since they are labeled OTC, we do not resolve them, and therefore, the price is defaulted to the source local price, which, for Satori, is column AQ along with FX rate.
+
+**Three Options Considered:**
+1. We continue manually overriding warrants to OTC and continue using the reported price (column AQ) as the price
+2. We continue manually overriding warrants to OTC and use the UnitCostBase (column H) as their price (which is a bit confusing, as to why they'd prefer this)
+3. We remove the manual override to OTC and instead allow the warrant to resolve, which will then allow SelectFeed to match it with an updated price
+
+**Resolution:**
+Jorge said that option 3 was the correct approach. Alex went through with implementation of the solution (which was removing the OTC specification).
 
 ### Themes
 
 ## Time Spent
-**Actual:** [X]h (Research: .5h | Implementation: [X]h)
+**Actual:** 2.5h (Research: 2.5h | Implementation: 0h)
 
 ## Retrospective
 **What went differently than planned?**
 
+Task ended up being resolved by Alex through removing OTC manual override specification rather than implementing new price mapping logic. The issue was architectural rather than requiring new adapter functionality.
+
 **Key learnings or gotchas:**
+
+I did not know that the adapter took prices from SelectFeed during the process. I was under the assumption that the price listed in the positions file was what was put in the app, but we do actually supplement prices on our end. This is important context for understanding how price resolution works in the system.

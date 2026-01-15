@@ -46,7 +46,7 @@ This was a quick adapter maintenance task, and extremely straightforward. I just
 **Quick Maintenance**: This was an extremely straightforward adapter configuration change - just updating mapping logic.
 
 ## Time Spent
-**Actual:** 1h (Research: 0.1h | Implementation: 0.9h)
+**Actual:** 1.2h (Research: 0.3h | Implementation: 0.9h)
 
 ## Retrospective
 **What went differently than planned?**

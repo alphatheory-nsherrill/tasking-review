@@ -62,12 +62,28 @@
 ## Execution Notes
 *Fill as you work - blockers, discoveries, pivots*
 
+Although I had performed tests on the code the previous week, I did not have a written record of what I had done, so this
+was a good opportunity to get myself refreshed. I created a Draw.io document where I included the screenshots and queries
+used to verify completeness.
+
+When I finished, I caught up with Dan, who had created a similar system that performed nearly the same logic, but
+exclusively in the database. After catching up with Dan, I reviewed his database procedures, and compared and contrasted
+my "check for completeness" queries against the tables created within the other system.
+
 ### Themes
 
+Many systems within IDM can be expressed in more robust ways, and as we start to deploy IDM and find specific deployment
+strategies for various IDM components, we ask the question of whether we still want to use a monorepo for developing IDM
+topics. In this case, it was around database procedures, and since it was just copying things from one database to another,
+it made sense to be database-centric. But what happens when we want to deploy slim packages elsewhere?
+
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** 4h (Research: 4h )
 
 ## Retrospective
+
+See execution notes and themes section.
+
 **What went differently than planned?**
 
-**Key learnings or gotchas:**
+Documentation was mainly for myself. Still useful, though.

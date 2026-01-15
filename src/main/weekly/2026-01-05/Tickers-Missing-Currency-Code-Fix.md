@@ -1,4 +1,4 @@
-# Tickers With No Currency Code
+# IN-3586 Tickers With No Currency Code
 
 **Type:** **Bug** | Feature | Exploration | Other
 **Est:** 3h | **Confidence:** 60%
@@ -53,7 +53,7 @@ and really learn how the pieces fit together. This system is definitely an upgra
 system from before.
 
 ## Time Spent
-**Actual:** 2.5h (Research: 2h | Implementation: .5h)
+**Actual:** 3.5h (Research: 3h | Implementation: .5h)
 
 ## Retrospective
 **What went differently than planned?**
