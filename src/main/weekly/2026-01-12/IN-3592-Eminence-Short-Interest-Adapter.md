@@ -62,13 +62,15 @@ Note: Column names in the issue description are not correct - need to consult th
 - retail_shares_ma_21d_rnk → "Retail Participation Rank" (multiply by 100)
 - retail_data_date → "Retail Date"
 
+currently run in staging, waiting for approval.
+
 ### Themes
 
 Eminence has been a client that has asked for quite a few adapters, and we have also needed a few rounds of feedback
 with either CX or the client.
 
 ## Time Spent
-**Actual:** [X]h (Research: [X]h | Implementation: [X]h)
+**Actual:** 1.5h (Research: [X]h | Implementation: 1.5h)
 
 ## Retrospective
 **What went differently than planned?**

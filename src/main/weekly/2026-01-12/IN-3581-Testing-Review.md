@@ -1,7 +1,8 @@
 # IN-3581 - TimesSquare Bloomberg Enrichment File Testing & Review
 
 **Type:** Bug | **Feature** | Exploration | Other
-**Est:** [X]h | **Confidence:** [X]%
+**Est:** [X]h | **Confidence:** [X]%  
+Completed: [ ]
 
 ## Problem & Goal
 Test and review the TimesSquare Bloomberg Enrichment File adapter that was completed last week.

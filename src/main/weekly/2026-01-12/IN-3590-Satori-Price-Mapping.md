@@ -1,7 +1,8 @@
 # IN-3590 - Satori: Prices for assets w/o SelectFeed coverage
 
 **Type:** **Bug** | Feature | Exploration | Other
-**Est:** 1h | **Confidence:** 65%
+**Est:** 1h | **Confidence:** 65%  
+Completed: [y]
 
 ## Problem & Goal
 Some assets in Satori's environment have stale prices. These cases are related to assets that are options or warrants, like Newhold Investment Corp III.

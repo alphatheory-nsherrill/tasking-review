@@ -1,7 +1,8 @@
 # IN-3589 Eminence Price Target Adapter Enhancement
 
 **Type:** Bug | **Feature** | Exploration | Other  
-**Est:** 2h | **Confidence:** 90%
+**Est:** 2h | **Confidence:** 90%  
+Completed: [y]
 
 ## Problem & Goal
 The adapter should be enhanced to automatically set and upload price targets for Eminence, utilizing data from the "Eminence Positions" file.

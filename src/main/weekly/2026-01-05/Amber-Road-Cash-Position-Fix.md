@@ -1,8 +1,8 @@
 # IN-3588 - Amber Road: Don't Map Cash Position
 
 **Type:** **Bug** | Feature | Exploration | Other
-**Est:** 1h | **Confidence:** 95%
-
+**Est:** 1h | **Confidence:** 95%  
+Completed: [y]
 ## Problem & Goal
 Adjust the adapter's instructions so cash is no longer mapped into the app.
 

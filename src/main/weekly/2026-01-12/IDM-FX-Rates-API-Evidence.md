@@ -1,7 +1,8 @@
 # IDM-34 - Create Body of Evidence for FX Rates INIT/TOPOFF via IDM API
 
-**Type:** Feature
-**Est:** 4h | **Confidence:** 85%
+**Type:** Feature  
+**Est:** 4h | **Confidence:** 85%  
+Completed: [y]
 
 ## Problem & Goal
 *Create comprehensive evidence that the IDM framework can successfully execute INIT and TOPOFF operations for FX rates via REST API, demonstrating production readiness and complete workflow integration.*

@@ -1,7 +1,8 @@
 # IN-3586 Tickers With No Currency Code
 
 **Type:** **Bug** | Feature | Exploration | Other
-**Est:** 3h | **Confidence:** 60%
+**Est:** 3h | **Confidence:** 60%  
+Completed: [y]
 
 ## Problem & Goal
 All tickers need a Currency Code.
