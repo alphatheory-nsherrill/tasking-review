@@ -153,7 +153,25 @@ Completed: [y] or [n] or [ ]
 - **Looking Ahead**: Unfinished work for next week
 - **Efficiency Gains**: What worked well (processes, tools, approaches)
 
-### 4. Email Summary Creation
+### 4. Weekly Status Reports
+
+**Format Requirements:**
+- Organize by functional area (Adapter, IDM/Infrastructure, etc.)
+- Use same date-based structure as aggregate documents
+- Focus on business value and impact rather than technical details
+- **Time Tracking Exclusion**: Do NOT include time spent information in weekly status reports
+  - Time tracking remains important for individual task documents
+  - Weekly status should focus on accomplishments and outcomes
+  - Detailed time analysis available in full aggregate documents
+
+**Content Structure:**
+- **Completed**: Tasks finished during the week with key outcomes
+- **In Progress**: Current work status and blockers
+- **Upcoming**: Planned work for following week
+- Include Jira links where applicable
+- Emphasize business impact and client outcomes
+
+### 5. Email Summary Creation
 
 **Structure Requirements:**
 1. **Week Breakdown**: Lead with hard numbers and metrics

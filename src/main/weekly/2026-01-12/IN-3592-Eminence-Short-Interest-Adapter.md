@@ -2,6 +2,7 @@
 
 **Type:** Bug | **Feature** | Exploration | Other
 **Est:** [X]h | **Confidence:** [X]%
+Completed: [y]
 
 ## Problem & Goal
 Create new adapter for Eminence Short Interest Report data mapping, focusing on short interest metrics and retail participation data.
@@ -62,7 +63,10 @@ Note: Column names in the issue description are not correct - need to consult th
 - retail_shares_ma_21d_rnk → "Retail Participation Rank" (multiply by 100)
 - retail_data_date → "Retail Date"
 
-currently run in staging, waiting for approval.
+**Deployment Completed:**
+- Jorge approved in staging on Thursday afternoon
+- Successfully deployed to production on Monday alongside IN-3591
+- No deployment complications specific to this adapter
 
 ### Themes
 
@@ -70,9 +74,13 @@ Eminence has been a client that has asked for quite a few adapters, and we have 
 with either CX or the client.
 
 ## Time Spent
-**Actual:** 1.5h (Research: [X]h | Implementation: 1.5h)
+**Actual:** 2h (Implementation: 1.5h | Deployment: 0.5h)
 
 ## Retrospective
 **What went differently than planned?**
 
+Implementation went smoothly as planned. Deployment was coordinated with IN-3591 to ensure both Eminence adapters were released together, which simplified the overall deployment process.
+
 **Key learnings or gotchas:**
+
+Coordinated deployment of related adapters (especially when retiring existing functionality) helps ensure data consistency and reduces complexity for client operations teams.
