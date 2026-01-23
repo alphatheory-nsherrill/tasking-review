@@ -55,19 +55,34 @@ Jorge needs to verify if we're receiving daily NAV files from Iridian and determ
 - Need to verify correct password usage and IP allowlisting status
 - run-adapter.sh configuration may provide insights into working connection methods
 
+**Email Chain Analysis & IP Discovery:**
+- Jorge provided raw email chain from Iridian credential setup
+- Attempted login again using new credentials with same failure result
+- Reading through email chain revealed potential IP allowlisting issue
+- Discovered that only public IP addresses are allowed for SFTP access
+- Current connection attempts are coming from s-adapter which may not be on allowlist
+- Requested Jorge reach out to Iridian to get Alpha Theory emails/IPs whitelisted
+
 **Current Status:**
-- Connection failure isolated to new credential set
-- Need follow-up investigation with Antoine to compare against working configurations
-- Client waiting for confirmation of NAV file reception capability
+- Root cause identified as likely IP allowlisting issue - s-adapter IP not whitelisted by Iridian
+- Jorge contacted to request Iridian whitelist Alpha Theory IPs/emails for SFTP access
+- Waiting for Iridian to update their allowlist before retesting connection
+- Once resolved, can proceed with NAV file analysis for adapter mapping
 
 ### Themes
 
 SFTP connection troubleshooting requires systematic comparison between working and non-working configurations. Client credential changes may involve network allowlisting updates or authentication method modifications that aren't immediately apparent.
 
+Email chain analysis can provide critical context for connection failures that technical testing alone cannot reveal. IP allowlisting restrictions are common in client SFTP setups and should be investigated early when credential-based troubleshooting fails.
+
 ## Time Spent
-**Actual:** 1.5h (Research: 1.5h | Implementation: [X]h)
+**Actual:** 2h (Research: 2h | Implementation: [X]h)
 
 ## Retrospective
 **What went differently than planned?**
 
+Initial focus was on credential and configuration issues, but the root cause turned out to be IP allowlisting restrictions that weren't immediately apparent from the technical error messages. Email chain analysis provided the key insight that led to identifying the actual blocker.
+
 **Key learnings or gotchas:**
+
+When SFTP credentials fail but appear technically correct, IP allowlisting should be investigated early in the troubleshooting process. Client email chains often contain critical context about network restrictions that aren't obvious from connection error messages. Many clients implement strict IP allowlisting for SFTP access that requires explicit coordination to resolve.
