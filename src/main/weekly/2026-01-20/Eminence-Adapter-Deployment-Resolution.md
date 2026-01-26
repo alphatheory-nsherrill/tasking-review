@@ -54,18 +54,31 @@ Execute production deployment of Eminence Short Interest (IN-3592) and Position 
 - **Resolution:** Deleted ExternalAppSettingsCustom entries to enable scenario functionality
 - **Process Improvement:** Used this opportunity to confirm delete access permissions on that table with Mike
 
+**Post-Deployment Data Issue:**
+- Jorge noticed that adapter data was still not appearing in production despite successful deployment
+- **Investigation:** Reached out to Mike for assistance with data visibility issue
+- **Root Cause:** Had a transaction open in another MSSQL session that was blocking transactions in current session from resolving
+- **Resolution:** Closed the blocking transaction to allow current session transactions to commit
+- **Learning Opportunity:** Gained understanding of how MSSQL sessions interact and how open transactions can block other sessions
+
 ### Themes
 
 Deployment coordination becomes more complex when multiple releases are in progress simultaneously. Data cleanup requirements (trades history) weren't immediately apparent until production deployment began. Database access permissions and cleanup procedures are critical for smooth adapter deployments.
 
+**Database Operations Complexity in Production:** This deployment highlighted the intricate nature of production database operations beyond basic deployment tasks. MSSQL session management proved crucial - open transactions in one session can block commits in other sessions, preventing data visibility despite successful deployment. Understanding database session interactions, transaction blocking, and data cleanup strategies (trades history) is essential for production troubleshooting.
+
+Production adapter deployments require comprehensive understanding of database state management, not just application-level deployment procedures. The post-deployment data visibility issue demonstrated that database session awareness is as important as deployment coordination for ensuring successful production releases.
+
 ## Time Spent
-**Actual:** 1h (Research: 0.5h | Implementation: 0.5h)
+**Actual:** 1.5h (Research: 0.5h | Implementation: 0.5h | Troubleshooting: 0.5h)
 
 ## Retrospective
 **What went differently than planned?**
 
-Deployment complications arose from data dependencies (trades history cleanup) and configuration oversight (ExternalAppSettingsCustom deletion) that weren't anticipated during staging testing. Coordination with IDM-31 release created scheduling constraints.
+Deployment complications arose from data dependencies (trades history cleanup) and configuration oversight (ExternalAppSettingsCustom deletion) that weren't anticipated during staging testing. Coordination with IDM-31 release created scheduling constraints. Post-deployment data visibility issue required additional troubleshooting due to blocking transaction in separate MSSQL session.
 
 **Key learnings or gotchas:**
 
 When deploying adapters that replace existing functionality, comprehensive data cleanup strategy is essential to prevent conflicts. ExternalAppSettingsCustom cleanup is critical step that should be included in standard deployment checklist. Database access permissions should be verified proactively rather than during deployment.
+
+MSSQL session management: Open transactions in one session can block commits in other sessions, causing deployed data to not appear in production. Always check for open transactions when data doesn't appear after successful deployment. Understanding database session interactions is crucial for production troubleshooting.
