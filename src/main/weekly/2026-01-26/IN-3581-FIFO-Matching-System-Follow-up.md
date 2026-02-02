@@ -45,7 +45,7 @@ Follow-up work on the FIFO Matching System issue resolution for TimesSquare Bloo
 
 **This Week's Follow-up Work:**
 
-All that is left is database validation in staging.
+Initial plan was database validation in staging.
 
 ```sql
 SELECT
@@ -72,19 +72,30 @@ like this.
 SELECT * FROM vwHolisticDepartmentView WHERE asset$assetID = 332479
 ```
 
-It turns out that the one row for this asset in the database is tied to an inactive asset. From what I gather looking
-through the code, this is intended functionality.
+The single row for this asset was tied to an inactive asset. Based on code review, this appears to be intended
+behavior.
+
+Direction later shifted to verification. In conversations with Dan, I learned the goal was *not* to create an idea for
+each fund, which differed from my initial verification approach. This would have been straightforward to implement,
+but before I could revert to only updating active assets, the requirements changed again and FIFO was no longer
+necessary. I removed the FIFO code and ran in staging in 40 minutes.
+
+The primary issue was the file taking 40 minutes to run. I spent 15 minutes re-checking requirements and 1.5 hours
+implementing a fix. I added logic to skip rows where the identifier was blank or no custom fields were populated,
+bringing the adapter runtime down to 6 minutes.
+
+Current state: implementation is largely complete, but we are waiting on a confirmed file delivery channel (ad hoc
+email vs. SFTP still not decided).
 
 ### Themes
 
 ## Time Spent
-**Actual:** 2.5h (Research: 2h | Implementation: .5h)
+**Actual:** 4h 55m (Prior total: 2.5h | Requirements review: 15m | Implementation: 1h 30m | Staging run: 40m)
 
 ## Retrospective
 **What went differently than planned?**
 
 **Key learnings or gotchas:**
 
-The key learning here was tied to that final note in the execution notes section: that inactive assets do not follow the
-same rules as active assets when it comes to the ideas rules. I was able to isolate the problematic section of code, and
-made for a good learning moment.
+Requirements volatility shifted verification targets mid-stream, and performance was dominated by rows with blank
+identifiers or no custom-field output. Skipping those rows reduced runtime substantially.
