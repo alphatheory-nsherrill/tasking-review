@@ -1,9 +1,10 @@
-# NS Tasking Review Aggregation [Week Date Range]
+# NS Tasking Review Learnings [Week Date Range]
 
-## Week Summary
-- **Total Hours**: Xh (Estimated: Yh, Variance: +/-Z%)
-- **Task Types**: X bugs, Y features, Z exploration
-- **External Dependencies**: X waiting on client, Y waiting on approvals
+## Week Focus
+- **Primary Outcomes**: [1-3 sentences on what changed, improved, or was unlocked]
+- **Key Challenges**: [1-3 bullets]
+- **Most Useful Learnings**: [1-3 bullets]
+- **Stakeholder/Dependency Notes**: [short bullets if relevant]
 
 ---
 
@@ -12,23 +13,24 @@
 **Type:** Bug | Feature | Exploration | Other  
 **Completed:** Yes | No
 
-#### Background
+#### Framing
 
-- **Problem and/or Goals**: [one sentence]
+- **What / Why / For Whom / How**: [1-2 sentences]
 - **Entry Point**: [one sentence]
 - **Deliverables**: [one sentence]
-- **Addtl Details**: [keep short]
+- **Context**: [keep short]
 
-#### Execution Notes
+#### Learnings & Challenges
 
-**Approx. Completion Time: [X]h**
 **Dependencies**: [Blocked by/Requires/Enables] (only include if applicable)
 
 - **Current Status**: [one sentence OR "Completed"]
-- **Notes Summary**: [keep short]
+- **Validation / Execution**: [tests, staging, review, data checks, approvals]
+- **Challenges**: [1-3 bullets]
+- **Learnings**: [1-3 bullets]
 - **Themes**: [one sentence] (only include if applicable)
 - **Deviations from Plan**: [one sentence] (only include if applicable)
-- **Learnings**: [keep short]
+- **Knowledge Transfer / Close-the-Loop**: [docs, handoff, stakeholder update] (optional)
 - **Follow-up Items**: [What future work this spawned] (optional)
 ---
 
@@ -37,23 +39,24 @@
 **Type:** Bug | Feature | Exploration | Other  
 **Completed:** Yes | No
 
-#### Background
+#### Framing
 
-- **Problem and/or Goals**: [one sentence]
+- **What / Why / For Whom / How**: [1-2 sentences]
 - **Entry Point**: [one sentence]
 - **Deliverables**: [one sentence]
-- **Addtl Details**: [keep short]
+- **Context**: [keep short]
 
-#### Execution Notes
+#### Learnings & Challenges
 
-**Approx. Completion Time: [X]h**
 **Dependencies**: [Blocked by/Requires/Enables] (only include if applicable)
 
 - **Current Status**: [one sentence OR "Completed"]
-- **Notes Summary**: [keep short]
+- **Validation / Execution**: [tests, staging, review, data checks, approvals]
+- **Challenges**: [1-3 bullets]
+- **Learnings**: [1-3 bullets]
 - **Themes**: [one sentence] (only include if applicable)
 - **Deviations from Plan**: [one sentence] (only include if applicable)
-- **Learnings**: [keep short]
+- **Knowledge Transfer / Close-the-Loop**: [docs, handoff, stakeholder update] (optional)
 - **Follow-up Items**: [What future work this spawned] (optional)
 
 ---
@@ -66,18 +69,24 @@
 
 ### Recurring Themes
 
-[parts of themes section that come up multiple times]  
-[parts of learnings section that come up multiple times]  
+[patterns repeated across tasks; summarize in 3-6 bullets]
 
-### Highlights
+### Lessons Learned
 
-[Any completed issues that feel like they moved the needle the most - maybe propose candidates]
+[what you now understand better; 3-6 bullets]
+
+### Challenges & Friction
+
+[what slowed work down or created risk; 3-6 bullets]
+
+### Decisions & Tradeoffs
+
+[key calls made and why; include unresolved decisions]
 
 ### Looking Ahead
 
-(Tasks that are unfinished that should be picked up next week)
-(Tasks that would benefit from some review next week)
+[follow-ups, approvals, or open loops to close next week]
 
-### Efficiency Gains
+### Knowledge Transfer / Documentation
 
-[What worked well this week - processes, tools, approaches that improved productivity or quality]
+[what was documented or should be documented next]

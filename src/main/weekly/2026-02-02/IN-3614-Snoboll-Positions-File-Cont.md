@@ -4,8 +4,11 @@
 **Est:** 1h | **Confidence:** 70%  
 Completed: [y]
 
-## Problem & Goal
-Continue IN-3614 work by validating missing CWH option behavior, coordinating handoff, and finalizing delivery paths so Snoboll positions flow into production reliably.
+## What / Why / For Whom / How
+- **What:** Continue IN-3614 work by validating missing CWH option behavior and finalizing delivery paths.
+- **Why:** Ensure Snoboll positions flow into production reliably and resolve visibility gaps.
+- **For Whom:** Snoboll; John Ryan Reviewer
+- **How:** Coordinate handoff and validation across staging/production; confirm delivery pipeline via email/SFTP.
 
 ## Deliverables
 - Staging and production validation for the missing CWH option
@@ -28,7 +31,6 @@ Continue IN-3614 work by validating missing CWH option behavior, coordinating ha
 ---
 
 ## Execution Notes
-
 **Handoff + Staging Review (Sunday/Monday):**
 - Dan took over the adapter after a missed execution detail.
 - Dan sent for John Ryan review Monday; John could not see the CWH (Camping World) option in the application.
@@ -44,6 +46,33 @@ Continue IN-3614 work by validating missing CWH option behavior, coordinating ha
 - John suspected the missing CWH option might be a staging bug and requested production deploy.
 - Adapter deployed to production; verified CWH still missing in app (~5 min).
 - Logged that CWH visibility needs a follow-on issue; DB did not show anomalies.
+
+**Solves Itself**
+- Antoine logged onto postman in production and confirmed that CWH was populating in the RAPI response, even though it wasn't showing in the app
+- Checked production again this morning, and CWH did show up in the app.
+
+## Validation / Execution
+- Staging review with Dan to confirm CWH visibility.
+- Production deploy and app verification; DB check via vwHolisticDepartmentView query.
+- Delivery pipeline test after `build-properties` deploy.
+```
+https://rapi-backend.prod.alphatheory.net/services/getAssetCalculationsService
+
+POST to above (no auth needed)
+ 
+BODY:
+{
+  "doGetAssetCalculationsJob": [
+    {
+      "argo": {
+        "requestUserID": <the Department's support user atuserID>
+        "returnAllFields": true
+      }
+    }
+  ]
+} 
+```
+
 
 ```sql
 select ticker$name,
@@ -63,8 +92,22 @@ order by v.fundAsset$modified desc;
 ### Themes
 - **Environment Mismatch Risk:** CWH visibility differed between staging and production, indicating possible environment-specific behavior or UI filtering.
 
+## Documentation / Knowledge Transfer
+- Handoff and review with John Ryan and Dan; follow-on issue noted for CWH visibility.
+- API request shown above for details on how to validate a RAPI response.
+
 ## Time Spent
 **Actual:** 0.9h (Research: 0.4h | Implementation: 0.5h)
+
+## Ratings
+- **Knowledge / Fluency:** [5]
+- **My Ability to Service Clearly:** [4]
+- **Team Ability to Service Clearly:** [5]
+
+## Growth Outcome
+*How does this contribute to my growth or the team's shared knowledge?*
+
+This was a live trial on validating data when I did not get the final pass at the adapter, to make sure I can read instructions and translate them into requirements I can see in the database.
 
 ## Retrospective
 **What went differently than planned?**

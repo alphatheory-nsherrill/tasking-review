@@ -4,8 +4,11 @@
 **Est:** 3h | **Confidence:** 70%  
 Completed: [ ]
 
-## Problem & Goal
-Reduce Times Square enrichment runtime by tightening exclusion rules, then validate that scenario/custom-field updates are applied correctly while awaiting final approval.
+## What / Why / For Whom / How
+- **What:** Reduce Times Square enrichment runtime and validate scenario/custom-field updates.
+- **Why:** Improve processing efficiency and ensure enrichment changes are applied correctly.
+- **For Whom:** Times Square stakeholders and reviewers (John Ryan).
+- **How:** Add exclusion rules, validate via staging/SQL, and coordinate review for approval.
 
 ## Deliverables
 - Exclusion logic to skip non-asset header rows and empty scenario/custom-field rows
@@ -29,7 +32,6 @@ Reduce Times Square enrichment runtime by tightening exclusion rules, then valid
 ---
 
 ## Execution Notes
-
 **Runtime Focus (Monday):**
 - Agreed to emphasize exclusion rules due to 40-minute runtime.
 - Implemented InvalidDob skip logic (~1h) when:
@@ -56,6 +58,11 @@ order by ascen.modified desc;
 - Found mapping typo for "High Sensitivity" (STRL/HOOD) and fixed in staging (~15m).
 - Still waiting on John's final signoff.
 
+## Validation / Execution
+- Staging runtime verification after exclusion logic changes.
+- SQL checks against ASSETSCENARIO and CustomFieldInstance for scenario updates.
+- Reviewer-driven validation after DB edits; mapping fix tested in staging.
+
 ```sql
 select v.ticker$name,
        cf.name,
@@ -77,8 +84,22 @@ and v.ticker$name in ('HOOD', 'STRL')
 - **Data Skew Drives Runtime:** Non-asset/header and empty rows dominated processing time.
 - **Validation Requires Delta Data:** Scenario updates only surface when DB values actually change.
 
+## Documentation / Knowledge Transfer
+- Coordinated testing expectations with John and captured the High Sensitivity mapping fix context.
+- Demonstrate proactive knowledge of checking custom field results and scenario modification.
+
 ## Time Spent
 **Actual:** 3.25h (Research: 2h | Implementation: 1.25h)
+
+## Ratings
+- **Knowledge / Fluency:** [4]
+- **My Ability to Service Clearly:** [5]
+- **Team Ability to Service Clearly:** [5]
+
+## Growth Outcome
+*How does this contribute to my growth or the team's shared knowledge?*
+
+This exists as more reinforcement of my debugging skills in staging, to show that data is populated as expected.
 
 ## Retrospective
 **What went differently than planned?**
