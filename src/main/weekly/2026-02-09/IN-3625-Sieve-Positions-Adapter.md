@@ -31,14 +31,18 @@ Adapter configuration for `SieveCapitalAlphaTheoryPositionsExternalAppInstructio
 ## Execution Notes
 - Analyzed CSV structure: 25 columns, UTF-8, trade-date quantities and market values.
 - Identified mapping strategy: use TD quantities/values, map identifiers (SEDOL/ISIN/CUSIP), map Instrument Name to custom symbol.
-- Established conditional logic: Common Equity → common_stock, ETF → etf; both use primaryExchangeInstrument treatment.
+- Initial AI MCP-assisted review introduced faulty assumptions, so I took a brief detour to review type mappings.
+- Confirmed there is no valid AlphaTheorySecurityType for ETF; ETFs are typically mapped as `common_stock`.
+- Established conditional logic: Common Equity -> common_stock, ETF -> common_stock; both use primaryExchangeInstrument treatment.
 - Set fund mapping to Entity Name and fund value to sum of TD long + TD short market values.
 - Added FX rate resolution with default USD.
 
 ## Validation / Execution
-Pending. Use sample file (e.g., 20260204) to confirm:
+**Tuesday 11PM Update:** John added department settings in production. However, discovered that production->staging synchronization occurs at 9PM, so the changes weren't captured for Wednesday testing. Learned from Mike that sync timing prevented availability of fund/etc for Sieve testing. Mike delayed synchronization to 11PM as a courtesy gesture. Department settings should be available for testing and production deployment Thursday morning.
+
+**Testing:** Use sample file (e.g., 20260204) to confirm:
 - Common Equity rows map to `common_stock` and `primaryExchangeInstrument`
-- ETF row maps to `etf` and `primaryExchangeInstrument`
+- ETF row maps to `common_stock` and `primaryExchangeInstrument`
 - Short positions remain negative via TD quantity
 - Fund value equals TD Long MV + TD Short MV sum
 - Report date parses from Date column
@@ -66,4 +70,9 @@ TBD
 TBD
 
 **Key learnings or gotchas:**
-TBD
+- Asked/validated fund value SUM logic in ParserExternalAppUtils (two source columns; no extra functionality needed).
+- Production→staging synchronization occurs at 9PM daily; changes made after this time won't be available in staging until the next day's sync.
+
+
+
+
